@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@siapkerja.id | Premium Talent Hub</title>
+    
+    <!-- Tailwind CSS untuk Styling Cepat -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Playfair Display (Serif/Gold) & Montserrat (Sans) -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome untuk Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            400: '#FBBF24',
+                            500: '#D4AF37', // Premium Gold
+                            600: '#B8860B',
+                        },
+                        dark: {
+                            900: '#0F0F0F',
+                            800: '#1A1A1A',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0F0F0F;
+            background-image: radial-gradient(circle at top right, rgba(212, 175, 55, 0.1), transparent 40%),
+                              radial-gradient(circle at bottom left, rgba(212, 175, 55, 0.05), transparent 40%);
+            background-attachment: fixed;
+            color: #E5E7EB;
+        }
+        
+        /* Animasi Transisi Halus */
+        .fade-in {
+            animation: fadeIn 0.4s ease-in-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .gold-gradient-text {
+            background: linear-gradient(to right, #FBBF24, #D4AF37, #FBBF24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .btn-gold-outline {
+            border: 1px solid #D4AF37;
+            color: #D4AF37;
+            transition: all 0.3s;
+        }
+        .btn-gold-outline:hover {
+            background-color: rgba(212, 175, 55, 0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+        }
+
+        .btn-gold-solid {
+            background: linear-gradient(135deg, #D4AF37, #B8860B);
+            color: #0F0F0F;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        .btn-gold-solid:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+            background: linear-gradient(135deg, #FBBF24, #D4AF37);
+        }
+
+        /* Styling Form Input */
+        .input-dark {
+            background-color: #1A1A1A;
+            border: 1px solid #333;
+            color: white;
+            transition: all 0.3s;
+        }
+        .input-dark:focus {
+            outline: none;
+            border-color: #D4AF37;
+            box-shadow: 0 0 0 1px #D4AF37;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex justify-center items-start pt-10 pb-24 px-4 font-sans selection:bg-gold-500 selection:text-dark-900">
+
+    <!-- Container Utama (Ukuran Mobile) -->
+    <div class="w-full max-w-md w-full relative">
+
+        <!-- HEADER -->
+        <div class="text-center mb-10">
+            <!-- Profil Image (Logo Custom) -->
+            <div class="w-24 h-24 mx-auto rounded-full border-2 border-gold-500 overflow-hidden bg-dark-800 shadow-[0_0_20px_rgba(212,175,55,0.3)] mb-4">
+                <img src="aset/logo.JPG" class="w-full h-full object-cover">
+            </div>
+            
+            <h1 class="font-serif text-2xl font-bold text-white mb-1">@siapkerja_official</h1>
+            <p class="text-gold-500 text-sm tracking-widest uppercase font-medium">Premium Talent Hub</p>
+            <p class="text-gray-400 text-sm mt-3 px-4">Katalog Talenta Indonesia<br>Media Promosi #1 untuk Jobseeker.</p>
+            <p class="text-gray-400 text-sm mt-2 px-4">Tempat HRD/owner temukan kandidat terbaik</p>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- MENU UTAMA -->
+        <!-- ========================================== -->
+        <div id="main-menu" class="flex flex-col gap-4 fade-in">
+            
+            <button onclick="showSection('jobseeker-form')" class="btn-gold-solid w-full py-4 px-6 rounded-xl flex items-center justify-between group">
+                <div class="flex items-center gap-4 text-left">
+                    <div class="w-10 h-10 rounded-full bg-dark-900 bg-opacity-20 flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-user-tie"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-base">Pencari Kerja / Jobseeker</h3>
+                        <p class="text-xs text-dark-900 opacity-80 font-medium mt-0.5">Daftar Paket Promosi Profil Elite</p>
+                    </div>
+                </div>
+                <i class="fa-solid fa-chevron-right opacity-70 group-hover:translate-x-1 transition-transform"></i>
+            </button>
+
+            <button onclick="showSection('hrd-form')" class="btn-gold-outline w-full py-4 px-6 rounded-xl flex items-center justify-between group">
+                <div class="flex items-center gap-4 text-left">
+                    <div class="w-10 h-10 rounded-full bg-gold-500 bg-opacity-10 flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-building"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-white">HRD / Owner Usaha</h3>
+                        <p class="text-xs text-gray-400 mt-0.5">Cari & Rekrut Talenta Terbaik</p>
+                    </div>
+                </div>
+                <i class="fa-solid fa-chevron-right opacity-70 group-hover:translate-x-1 transition-transform text-gold-500"></i>
+            </button>
+            
+            <a href="https://instagram.com/siapkerja_official" target="_blank" class="w-full py-3 px-6 rounded-xl flex items-center justify-center gap-2 text-sm text-gray-400 hover:text-white transition-colors mt-4 border border-gray-800 hover:border-gray-600">
+                <i class="fa-brands fa-instagram"></i> Lihat Portfolio di Instagram
+            </a>
+        </div>
+
+
+        <!-- ========================================== -->
+        <!-- FORM PENCARI KERJA -->
+        <!-- ========================================== -->
+        <div id="jobseeker-form" class="hidden fade-in bg-dark-800 p-6 rounded-2xl border border-gray-800">
+            <button onclick="showSection('main-menu')" class="text-gray-400 hover:text-gold-500 text-sm mb-6 flex items-center gap-2 transition-colors">
+                <i class="fa-solid fa-arrow-left"></i> Kembali
+            </button>
+            
+            <h2 class="font-serif text-xl gold-gradient-text font-bold mb-2">Form Pendaftaran Talent</h2>
+            <p class="text-xs text-gray-400 mb-6">Isi data awal ini untuk diarahkan ke CS kami via WhatsApp.</p>
+
+            <form onsubmit="submitJobseekerForm(event)" class="flex flex-col gap-4">
+                <div>
+                    <label class="block text-xs font-medium text-gray-400 mb-1">Nama Lengkap</label>
+                    <input type="text" id="js-nama" required class="w-full input-dark rounded-lg py-2.5 px-3 text-sm" placeholder="Contoh: Budi Santoso">
+                </div>
+                
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-medium text-gray-400 mb-1">Usia</label>
+                        <input type="number" id="js-usia" required class="w-full input-dark rounded-lg py-2.5 px-3 text-sm" placeholder="Contoh: 24">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-gray-400 mb-1">Domisili (Kota)</label>
+                        <input type="text" id="js-kota" required class="w-full input-dark rounded-lg py-2.5 px-3 text-sm" placeholder="Contoh: Jakarta">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-medium text-gray-400 mb-1">Status Pengalaman</label>
+                    <select id="js-status" required class="w-full input-dark rounded-lg py-2.5 px-3 text-sm appearance-none">
+                        <option value="" disabled selected>Pilih Status...</option>
+                        <option value="Fresh Graduate">Fresh Graduate</option>
+                        <option value="Experienced">Experienced (Sudah Pengalaman)</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-gold-solid w-full py-3 rounded-lg mt-4 flex justify-center items-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-lg"></i> Kirim Form & Lanjut ke WA
+                </button>
+            </form>
+        </div>
+
+
+        <!-- ========================================== -->
+        <!-- FORM HRD / OWNER -->
+        <!-- ========================================== -->
+        <div id="hrd-form" class="hidden fade-in bg-dark-800 p-6 rounded-2xl border border-gray-800">
+            <button onclick="showSection('main-menu')" class="text-gray-400 hover:text-gold-500 text-sm mb-6 flex items-center gap-2 transition-colors">
+                <i class="fa-solid fa-arrow-left"></i> Kembali
+            </button>
+            
+            <h2 class="font-serif text-xl text-white font-bold mb-2">Inquiries Perekrut</h2>
+            <p class="text-xs text-gray-400 mb-6">Butuh talenta spesifik? Beritahu kami kriteria yang Anda cari.</p>
+
+            <form onsubmit="submitHrdForm(event)" class="flex flex-col gap-4">
+                <div>
+                    <label class="block text-xs font-medium text-gray-400 mb-1">Nama Perusahaan / Instansi</label>
+                    <input type="text" id="hrd-perusahaan" required class="w-full input-dark rounded-lg py-2.5 px-3 text-sm" placeholder="PT. ABC Indonesia">
+                </div>
+                
+                <div>
+                    <label class="block text-xs font-medium text-gray-400 mb-1">Nama Rekruter / Owner</label>
+                    <input type="text" id="hrd-nama" required class="w-full input-dark rounded-lg py-2.5 px-3 text-sm" placeholder="Nama Anda">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-medium text-gray-400 mb-1">Posisi Talenta yang Dicari</label>
+                    <input type="text" id="hrd-posisi" required class="w-full input-dark rounded-lg py-2.5 px-3 text-sm" placeholder="Contoh: Digital Marketer, SPV Sales">
+                </div>
+                
+                <div>
+                    <label class="block text-xs font-medium text-gray-400 mb-1">Pesan / Pertanyaan Tambahan</label>
+                    <textarea id="hrd-pesan" rows="3" class="w-full input-dark rounded-lg py-2.5 px-3 text-sm" placeholder="Tuliskan jika ada kebutuhan khusus..."></textarea>
+                </div>
+
+                <button type="submit" class="bg-white text-dark-900 font-bold hover:bg-gray-200 w-full py-3 rounded-lg mt-4 flex justify-center items-center gap-2 transition-colors">
+                    <i class="fa-brands fa-whatsapp text-lg text-green-600"></i> Hubungi Tim SiapKerja
+                </button>
+            </form>
+        </div>
+
+        <!-- Footer -->
+        <div class="text-center mt-8 text-xs text-gray-600">
+            &copy; 2026 @siapkerja_official - All Rights Reserved.
+        </div>
+
+    </div>
+
+    <!-- ========================================== -->
+    <!-- FLOATING WHATSAPP BUTTON (CS CEPAT) -->
+    <!-- ========================================== -->
+    <a href="#" onclick="openGeneralCS(event)" class="fixed bottom-6 right-6 bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-lg hover:scale-110 hover:shadow-[0_0_20px_rgba(37,211,102,0.5)] transition-all z-50">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // ==========================================
+        // GANTI NOMOR WA KAMU DI SINI
+        // Format: Gunakan kode negara (62), tanpa angka 0 di depan, tanda +, atau spasi.
+        // Contoh asli: 081234567890 menjadi 6281234567890
+        // ==========================================
+        const WA_NUMBER = "6285232190937"; // Nomor WhatsApp yang sudah diubah
+
+        // Fungsi Ganti Menu/Section
+        function showSection(sectionId) {
+            // Sembunyikan semua section
+            document.getElementById('main-menu').classList.add('hidden');
+            document.getElementById('jobseeker-form').classList.add('hidden');
+            document.getElementById('hrd-form').classList.add('hidden');
+            
+            // Tampilkan section yang dipilih
+            document.getElementById(sectionId).classList.remove('hidden');
+            
+            // Scroll sedikit ke atas agar form terlihat penuh
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Fungsi Submit Form Pencari Kerja
+        function submitJobseekerForm(e) {
+            e.preventDefault(); // Mencegah reload halaman
+            
+            // Ambil nilai input
+            const nama = document.getElementById('js-nama').value;
+            const usia = document.getElementById('js-usia').value;
+            const kota = document.getElementById('js-kota').value;
+            const status = document.getElementById('js-status').value;
+            
+            // Template Pesan WA untuk Jobseeker
+            const textMessage = `Halo Admin SiapKerja! 💎\nSaya tertarik mendaftar untuk promosi profil premium.\n\n*Data Profil Saya:*\nNama: ${nama}\nUsia: ${usia} Tahun\nDomisili: ${kota}\nStatus: ${status}\n\nMohon info detail mengenai promosi dan langkah selanjutnya. Terima kasih!`;
+            
+            // Encode teks menjadi format URL yang valid
+            const encodedText = encodeURIComponent(textMessage);
+            
+            // Pindahkan halaman langsung ke WA (Aman untuk Browser Instagram/HP)
+            window.location.href = `https://wa.me/${WA_NUMBER}?text=${encodedText}`;
+        }
+
+        // Fungsi Submit Form HRD/Owner
+        function submitHrdForm(e) {
+            e.preventDefault();
+            
+            const perusahaan = document.getElementById('hrd-perusahaan').value;
+            const nama = document.getElementById('hrd-nama').value;
+            const posisi = document.getElementById('hrd-posisi').value;
+            const pesan = document.getElementById('hrd-pesan').value;
+            
+            // Template Pesan WA untuk HRD
+            let textMessage = `Halo Tim SiapKerja 🏢\nPerkenalkan saya *${nama}* dari *${perusahaan}*.\n\nSaat ini kami sedang mencari talenta untuk posisi: *${posisi}*.\n`;
+            
+            if(pesan.trim() !== "") {
+                textMessage += `\nCatatan Tambahan:\n"${pesan}"\n`;
+            }
+            
+            textMessage += `\nApakah ada kandidat premium di katalog SiapKerja yang sesuai dengan kriteria kami? Mari berdiskusi.`;
+            
+            const encodedText = encodeURIComponent(textMessage);
+            window.location.href = `https://wa.me/${WA_NUMBER}?text=${encodedText}`;
+        }
+
+        // Fungsi Klik Tombol WA Melayang (CS Umum)
+        function openGeneralCS(e) {
+            e.preventDefault();
+            const textMessage = "Halo Admin SiapKerja! Saya melihat profil Instagram @siapkerja_official dan ingin bertanya-tanya dulu. 😊";
+            const encodedText = encodeURIComponent(textMessage);
+            window.location.href = `https://wa.me/${WA_NUMBER}?text=${encodedText}`;
+        }
+    </script>
+</body>
+</html>
